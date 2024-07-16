@@ -1,0 +1,296 @@
+/* CSS Variables */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #009688;
+    --background-gradient: linear-gradient(135deg, #e0f7fa, #80deea, #26c6da);
+    --white-opacity: rgba(255, 255, 255, 0.95);
+    --black-opacity: rgba(0, 0, 0, 0.8);
+    --box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    --input-border-color: #ccc;
+    --input-focus-color: #4CAF50;
+    --label-color: #555;
+    --status-color: #777;
+    --button-hover-color: #45a049;
+    --border-radius: 12px;
+    --animation-duration: 0.3s;
+    --gradient-animation: gradient 5s infinite alternate;
+    --font-family: 'Montserrat', sans-serif;
+}
+
+/* Global Reset and Setup */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    background: var(--background-gradient);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    animation: var(--gradient-animation);
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: var(--white-opacity);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+}
+
+header h1 {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 2;
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color var(--animation-duration) ease;
+    border-radius: var(--border-radius);
+    position: relative;
+    font-size: 1.2em;
+}
+
+header nav ul li a:hover {
+    color: var(--primary-color);
+    background-color: var(--white-opacity);
+}
+
+header nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width var(--animation-duration) ease;
+    transform: translateX(-50%);
+}
+
+header nav ul li a:hover::before {
+    width: 100%;
+}
+
+main {
+    width: 100%;
+    padding: 20px 0;
+    background-color: var(--white-opacity);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    animation: fadeIn var(--animation-duration) ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#orderList {
+    text-align: center;
+}
+
+#orderList h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.book-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+.order {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform var(--animation-duration) ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.order:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2); /* Enhanced hover effect */
+}
+
+.book {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.book img {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform var(--animation-duration) ease;
+}
+
+.book img:hover {
+    transform: scale(1.05); /* Scale up image on hover */
+}
+
+.book-info {
+    width: 100%;
+    text-align: center;
+}
+
+.book-info h3 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+}
+
+.book-info p {
+    font-size: 1.1em;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.order .remove-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--animation-duration) ease, transform var(--animation-duration) ease;
+    font-size: 1em;
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.order .remove-button:hover {
+    background-color: var(--button-hover-color);
+    transform: translateX(-50%) translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced hover effect */
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: var(--black-opacity); /* Darker footer background */
+    color: #fff;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    font-size: 0.9em;
+    z-index: 2;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+    z-index: -1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    header nav ul li {
+        margin: 0 10px;
+    }
+
+    .book img {
+        width: 100px;
+        height: 150px;
+    }
+}
+
+/* Accessibility Enhancements */
+:focus-visible {
+    outline: 2px solid var(--primary-color);
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    body {
+        background-color: #fff;
+        color: #000;
+    }
+
+    header,
+    main,
+    footer {
+        background-color: #000;
+        color: #fff;
+    }
+}
+    

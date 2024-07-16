@@ -1,0 +1,166 @@
+/* CSS Variables */
+:root {
+    --primary-color: #4CAF50;
+    --secondary-color: #009688;
+    --accent-color: #FF5722;
+    --background-gradient: linear-gradient(135deg, #e0f7fa, #80deea, #26c6da);
+    --text-color: #333;
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+    --border-radius: 12px;
+    --box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    --animation-duration: 0.6s;
+    --overlay-color: rgba(255, 255, 255, 0.8);
+    --highlight-color: #FFEB3B;
+}
+
+/* Global Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--body-font);
+    background: var(--background-gradient);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    margin: 0;
+    overflow: hidden;
+    animation: fadeIn var(--animation-duration) ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    background: var(--overlay-color);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 800px;
+    width: 100%;
+    animation: slideIn var(--animation-duration) ease-in-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    font-family: var(--heading-font);
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    font-family: var(--heading-font);
+    font-size: 2em;
+    color: var(--secondary-color);
+    margin-top: 30px;
+    text-align: center;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+p, li {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+ol, ul {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+}
+
+li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-color);
+    font-size: 1.5em;
+    line-height: 1.2;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color var(--animation-duration) ease-in-out;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 30px;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    p, li {
+        font-size: 1em;
+    }
+}
+
+/* Additional Enhancements */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(224, 247, 250, 0.5), rgba(128, 222, 234, 0.5), rgba(38, 198, 218, 0.5));
+    z-index: -1;
+    filter: blur(50px);
+}
+
+main::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background: var(--highlight-color);
+    margin: 20px auto 0;
+    border-radius: 2px;
+}

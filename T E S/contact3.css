@@ -1,0 +1,270 @@
+/* CSS Variables */
+:root {
+    --primary-color: #4CAF50;
+    --background-gradient: linear-gradient(135deg, #e0f7fa, #80deea, #26c6da);
+    --white-opacity: rgba(255, 255, 255, 0.9);
+    --box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    --input-border-color: #ccc;
+    --input-focus-color: #4CAF50;
+    --label-color: #333;
+    --status-color: #666;
+    --button-hover-color: #45a049;
+    --border-radius: 16px;
+    --animation-duration: 1s;
+    --gradient-animation: gradient 5s infinite alternate;
+    --highlight-color: rgba(76, 175, 80, 0.2);
+}
+
+/* Reset Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    background: var(--background-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    animation: var(--gradient-animation);
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.contact-form-container {
+    background: var(--white-opacity);
+    max-width: 600px;
+    width: 90%;
+    padding: 40px 50px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    backdrop-filter: blur(20px);
+    animation: fadeIn var(--animation-duration) ease-in-out;
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-form-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0));
+    animation: rotate 6s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.contact-form-container h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    animation: slideIn var(--animation-duration) ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.contact-form-container form {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.contact-form-container label {
+    font-weight: bold;
+    color: var(--label-color);
+    animation: fadeInLabel var(--animation-duration) ease-in-out;
+}
+
+@keyframes fadeInLabel {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+    padding: 16px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 8px;
+    font-size: 1.2em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f9f9f9;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    color: #333;
+}
+
+.contact-form-container input:focus,
+.contact-form-container textarea:focus {
+    outline: none;
+    border-color: var(--input-focus-color);
+    box-shadow: 0 0 10px var(--highlight-color);
+}
+
+.contact-form-container textarea {
+    resize: vertical;
+    min-height: 160px;
+}
+
+.contact-form-container button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    font-size: 1.4em;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form-container button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    transition: transform 0.3s ease;
+    pointer-events: none;
+}
+
+.contact-form-container button:hover::before {
+    transform: translateX(100%);
+}
+
+.contact-form-container button:hover {
+    background-color: var(--button-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form-container button:active {
+    transform: scale(0.98);
+}
+
+#status {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bold;
+    color: var(--status-color);
+    animation: fadeInStatus var(--animation-duration) ease-in-out;
+}
+
+@keyframes fadeInStatus {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-form-container input::placeholder,
+.contact-form-container textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+@media (max-width: 600px) {
+    .contact-form-container {
+        padding: 20px;
+    }
+
+    .contact-form-container h2 {
+        font-size: 2em;
+    }
+
+    .contact-form-container button {
+        font-size: 1.2em;
+    }
+}
+
+/* Accessibility Enhancements */
+.contact-form-container input:focus-visible,
+.contact-form-container textarea:focus-visible {
+    outline: 2px solid var(--input-focus-color);
+}
+
+.contact-form-container input:invalid,
+.contact-form-container textarea:invalid {
+    border-color: red;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    body {
+        background: var(--background-gradient);
+    }
+
+    .contact-form-container {
+        background: white;
+        box-shadow: none;
+    }
+
+    .contact-form-container h2,
+    .contact-form-container label,
+    .contact-form-container input,
+    .contact-form-container textarea,
+    .contact-form-container button {
+        color: black;
+        background: white;
+        border-color: black;
+    }
+
+    .contact-form-container button {
+        background: var(--primary-color);
+        color: white;
+    }
+}

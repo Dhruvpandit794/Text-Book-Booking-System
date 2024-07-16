@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Cart Example</title>
+    <link rel="stylesheet" href="addtocart.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>Your Cart</h1>
+    </header>
+
+    <main class="cart-container">
+        <h2>Shopping Cart</h2>
+        <div id="cartItems"></div>
+    </main>
+
+    <footer class="footer">
+        <button id="bookButton" onclick="showBill()">Book Now</button>
+    </footer>
+
+    <div id="billModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="billDetails"></div>
+            <div id="totalAmount"></div>
+            <button id="placeBookingButton" onclick="placeBooking()">Place Booking</button>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">
+        Order placed successfully!
+    </div>
+
+    <script src="addtocart.js"></script>
+</body>
+</html>

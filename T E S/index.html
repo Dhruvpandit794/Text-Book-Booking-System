@@ -1,0 +1,153 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textbook Exchange Service</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <div class="info-container">
+            <button class="info-btn" onclick="window.location.href='infotorun.html'">
+                <img src="https://logodix.com/logo/1146029.png" alt="Info to Run Logo">
+            </button>
+        </div>
+        <h1>Textbook Exchange Service</h1>
+        <nav>
+            <ul>
+                <li><a href="home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact3.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="cart-container">
+            <button class="cart-btn" onclick="window.location.href='addtocart.html'">
+                <span id="cart-item-count" class="badge">0</span>
+                <img src="https://static.vecteezy.com/system/resources/previews/010/835/736/large_2x/cart-icon-logo-vector.jpg" alt="Cart Icon">
+            </button>
+        </div>
+    </header>
+    <main>
+        <section id="search">
+            <h2>Find a Textbook</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search for a textbook...">
+                <button id="searchButton" onclick="searchBooks()">Search</button>
+            </div>
+        </section>
+        
+        <section id="results">
+            <h2>Search Results</h2>
+            <div id="books" class="book-container">
+                <!-- Book List -->
+                <div class="book" data-title="Introduction to Algorithms" data-author="Thomas H. Cormen" data-price="99.99">
+                    <img src="https://i5.walmartimages.com/asr/a5843dbd-67be-4eb8-80f4-ca9e86d4ba18.83130bd24d69d630b693bd28a1cba10a.jpeg?odnWidth=1000&odnHeight=1000&odnBg=ffffff" alt="Introduction to Algorithms">
+                    <h3>Introduction to Algorithms</h3>
+                    <p>by Thomas H. Cormen</p>
+                    <p>Price: $99.99</p>
+                    <button class="addToCart" onclick="addToCart(this, 'Introduction to Algorithms', 'Thomas H. Cormen', 'https://i5.walmartimages.com/asr/a5843dbd-67be-4eb8-80f4-ca9e86d4ba18.83130bd24d69d630b693bd28a1cba10a.jpeg', 99.99)">Add to Cart</button>
+                                    </div>
+                <div class="book" data-title="Clean Code" data-author="Robert C. Martin" data-price="39.99">
+                    <img src="https://miro.medium.com/max/1103/1*PKsDuPxNoKJyJvmlLc64qg.jpeg" alt="Clean Code">
+                    <h3>Clean Code</h3>
+                    <p>by Robert C. Martin</p>
+                    <p>Price: $39.99</p>
+                    <button class="addToCart" onclick="addToCart(this, 'Clean Code', 'Robert C. Martin', 'https://miro.medium.com/max/1103/1*PKsDuPxNoKJyJvmlLc64qg.jpeg', 39.99)">Add to Cart</button>
+                                    </div>
+                <div class="book" data-title="Design Patterns" data-author="Erich Gamma" data-price="49.99">
+                    <img src="https://th.bing.com/th/id/R.e7367930c2bf62058f970bf8e9743bbc?rik=kNsem6VO88CNHA&riu=http%3a%2f%2fprodimage.images-bn.com%2fpimages%2f9780201633610_p0_v5_s1200x630.jpg&ehk=NG4iuQdR7DaJTBsfNwWn8klU5CB9AciuuryIsKHl9fA%3d&risl=&pid=ImgRaw&r=0" alt="Design Patterns">
+                    <h3>Design Patterns</h3>
+                    <p>by Erich Gamma</p>
+                    <p>Price: $49.99</p>
+                    <button class="addToCart" onclick="addToCart(this, 'Design Patterns', 'Erich Gamma', 'https://th.bing.com/th/id/R.e7367930c2bf62058f970bf8e9743bbc?rik=kNsem6VO88CNHA&riu=http%3a%2f%2fprodimage.images-bn.com%2fpimages%2f9780201633610_p0_v5_s1200x630.jpg&ehk=NG4iuQdR7DaJTBsfNwWn8klU5CB9AciuuryIsKHl9fA%3d&risl=&pid=ImgRaw&r=0', 49.99)">Add to Cart</button>
+                                    </div>
+                <div class="book" data-title="You Don't Know JS" data-author="Kyle Simpson" data-price="29.99">
+                    <img src="https://m.media-amazon.com/images/I/410f-bUBR3L.jpg" alt="You Don't Know JS">
+                    <h3>You Don't Know JS</h3>
+                    <p>by Kyle Simpson</p>
+                    <p>Price: $29.99</p>
+                    <button class="addToCart" onclick="addToCart(this, 'You Don\'t Know JS', 'Kyle Simpson', 'https://m.media-amazon.com/images/I/410f-bUBR3L.jpg', 29.99)">Add to Cart</button>
+                                    </div>
+                <div class="book" data-title="Eloquent JavaScript" data-author="Marijn Haverbeke" data-price="19.99">
+                    <img src="https://th.bing.com/th/id/R.472e93e0a83b58aa3b7fabbce198de50?rik=M2xNcFwqTJPxOw&riu=http%3a%2f%2feloquentjavascript.net%2f1st_edition%2fimg%2fejs.png&ehk=q%2bwDXjvGxVGBFml%2bWSeTXt%2bfZFtH1fwCa2I81XcPMa4%3d&risl=&pid=ImgRaw&r=0" alt="Eloquent JavaScript">
+                    <h3>Eloquent JavaScript</h3>
+                    <p>by Marijn Haverbeke</p>
+                    <p>Price: $19.99</p>
+                    <button class="addToCart" onclick="addToCart(this, 'Eloquent JavaScript', 'Marijn Haverbeke', 'https://th.bing.com/th/id/R.472e93e0a83b58aa3b7fabbce198de50?rik=M2xNcFwqTJPxOw&riu=http%3a%2f%2feloquentjavascript.net%2f1st_edition%2fimg%2fejs.png&ehk=q%2bwDXjvGxVGBFml%2bWSeTXt%2bfZFtH1fwCa2I81XcPMa4%3d&risl=&pid=ImgRaw&r=0', 19.99)">Add to Cart</button>
+                                   </div>
+            </div>
+            </div>
+            <br>
+            <br>
+        </section>
+    </main>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-buttons">
+            <button id="yourOrdersButton" onclick="viewOrders()">Your Orders</button>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>

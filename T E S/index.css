@@ -1,0 +1,181 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+header h1 {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.info-container, .cart-container {
+    position: absolute;
+    top: 10px;
+}
+
+.info-container {
+    left: 10px;
+}
+
+.cart-container {
+    right: 10px;
+}
+
+.info-btn, .cart-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.info-btn img, .cart-btn img {
+    width: 30px; /* Adjusted size to match */
+    height: 30px; /* Adjusted size to match */
+}
+
+.info-btn .badge, .cart-btn .badge {
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 12px;
+}
+
+main {
+    padding: 20px;
+}
+
+.search-container {
+    display: flex;
+}
+
+.search-container input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.search-container button {
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.book {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+}
+
+.book img {
+    width: 100%;
+    height: auto;
+}
+
+.book h3 {
+    font-size: 18px;
+    margin: 10px 0 5px 0;
+}
+
+.book p {
+    margin: 5px 0;
+}
+
+.book button {
+    padding: 5px 10px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#yourOrdersButton {
+    background: none;
+    border: 2px solid white;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+}
